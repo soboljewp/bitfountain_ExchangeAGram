@@ -9,11 +9,11 @@
 /* Begin PBXBuildFile section */
 		CDE017BD1A716E95001C4CA4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE017BC1A716E95001C4CA4 /* AppDelegate.swift */; };
 		CDE017C01A716E95001C4CA4 /* ExchangeAGram.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CDE017BE1A716E95001C4CA4 /* ExchangeAGram.xcdatamodeld */; };
-		CDE017C21A716E95001C4CA4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE017C11A716E95001C4CA4 /* ViewController.swift */; };
 		CDE017C51A716E95001C4CA4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDE017C31A716E95001C4CA4 /* Main.storyboard */; };
 		CDE017C71A716E95001C4CA4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDE017C61A716E95001C4CA4 /* Images.xcassets */; };
 		CDE017CA1A716E95001C4CA4 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDE017C81A716E95001C4CA4 /* LaunchScreen.xib */; };
 		CDE017D61A716E95001C4CA4 /* ExchangeAGramTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE017D51A716E95001C4CA4 /* ExchangeAGramTests.swift */; };
+		CDE017E01A717D44001C4CA4 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE017DF1A717D44001C4CA4 /* FeedViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,13 +31,13 @@
 		CDE017BB1A716E95001C4CA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CDE017BC1A716E95001C4CA4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CDE017BF1A716E95001C4CA4 /* ExchangeAGram.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ExchangeAGram.xcdatamodel; sourceTree = "<group>"; };
-		CDE017C11A716E95001C4CA4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		CDE017C41A716E95001C4CA4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CDE017C61A716E95001C4CA4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		CDE017C91A716E95001C4CA4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		CDE017CF1A716E95001C4CA4 /* ExchangeAGramTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExchangeAGramTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDE017D41A716E95001C4CA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CDE017D51A716E95001C4CA4 /* ExchangeAGramTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeAGramTests.swift; sourceTree = "<group>"; };
+		CDE017DF1A717D44001C4CA4 /* FeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,7 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				CDE017BC1A716E95001C4CA4 /* AppDelegate.swift */,
-				CDE017C11A716E95001C4CA4 /* ViewController.swift */,
+				CDE017DF1A717D44001C4CA4 /* FeedViewController.swift */,
 				CDE017C31A716E95001C4CA4 /* Main.storyboard */,
 				CDE017C61A716E95001C4CA4 /* Images.xcassets */,
 				CDE017C81A716E95001C4CA4 /* LaunchScreen.xib */,
@@ -215,8 +215,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CDE017C21A716E95001C4CA4 /* ViewController.swift in Sources */,
 				CDE017BD1A716E95001C4CA4 /* AppDelegate.swift in Sources */,
+				CDE017E01A717D44001C4CA4 /* FeedViewController.swift in Sources */,
 				CDE017C01A716E95001C4CA4 /* ExchangeAGram.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -411,6 +411,7 @@
 				CDE017DB1A716E95001C4CA4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CDE017DC1A716E95001C4CA4 /* Build configuration list for PBXNativeTarget "ExchangeAGramTests" */ = {
 			isa = XCConfigurationList;
@@ -419,6 +420,7 @@
 				CDE017DE1A716E95001C4CA4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
