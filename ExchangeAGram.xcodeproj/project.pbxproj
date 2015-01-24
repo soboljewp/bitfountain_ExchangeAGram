@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		CD2E75B81A72463B005F6DF7 /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2E75B71A72463B005F6DF7 /* FeedCell.swift */; };
 		CD2E75BA1A72476B005F6DF7 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD2E75B91A72476B005F6DF7 /* MobileCoreServices.framework */; };
+		CDBC75911A73DA740052F455 /* FeedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDBC75901A73DA740052F455 /* FeedItem.swift */; };
 		CDE017BD1A716E95001C4CA4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE017BC1A716E95001C4CA4 /* AppDelegate.swift */; };
 		CDE017C01A716E95001C4CA4 /* ExchangeAGram.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CDE017BE1A716E95001C4CA4 /* ExchangeAGram.xcdatamodeld */; };
 		CDE017C51A716E95001C4CA4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDE017C31A716E95001C4CA4 /* Main.storyboard */; };
@@ -31,6 +32,7 @@
 /* Begin PBXFileReference section */
 		CD2E75B71A72463B005F6DF7 /* FeedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
 		CD2E75B91A72476B005F6DF7 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		CDBC75901A73DA740052F455 /* FeedItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedItem.swift; sourceTree = "<group>"; };
 		CDE017B71A716E95001C4CA4 /* ExchangeAGram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExchangeAGram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDE017BB1A716E95001C4CA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CDE017BC1A716E95001C4CA4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 				CDE017BC1A716E95001C4CA4 /* AppDelegate.swift */,
 				CDE017DF1A717D44001C4CA4 /* FeedViewController.swift */,
 				CD2E75B71A72463B005F6DF7 /* FeedCell.swift */,
+				CDBC75901A73DA740052F455 /* FeedItem.swift */,
 				CDE017C31A716E95001C4CA4 /* Main.storyboard */,
 				CDE017C61A716E95001C4CA4 /* Images.xcassets */,
 				CDE017C81A716E95001C4CA4 /* LaunchScreen.xib */,
@@ -225,6 +228,7 @@
 				CDE017BD1A716E95001C4CA4 /* AppDelegate.swift in Sources */,
 				CD2E75B81A72463B005F6DF7 /* FeedCell.swift in Sources */,
 				CDE017E01A717D44001C4CA4 /* FeedViewController.swift in Sources */,
+				CDBC75911A73DA740052F455 /* FeedItem.swift in Sources */,
 				CDE017C01A716E95001C4CA4 /* ExchangeAGram.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
