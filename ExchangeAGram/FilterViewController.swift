@@ -79,13 +79,16 @@ class FilterViewController: UIViewController, UICollectionViewDataSource, UIColl
     // MARK: - UICollectionViewDelegate
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        let filterImage = self.filteredImageForImage(self.thisFeedItem.image, filter: self.filters[indexPath.row])
+        createUIAlertController()
         
-        self.thisFeedItem.image = UIImageJPEGRepresentation(filterImage, 1.0)
-        self.thisFeedItem.thumbNail = UIImageJPEGRepresentation(filterImage, 0.1)
         
-        (UIApplication.sharedApplication().delegate as AppDelegate).saveContext()
-        self.navigationController?.popViewControllerAnimated(true)
+//        let filterImage = self.filteredImageForImage(self.thisFeedItem.image, filter: self.filters[indexPath.row])
+//        
+//        self.thisFeedItem.image = UIImageJPEGRepresentation(filterImage, 1.0)
+//        self.thisFeedItem.thumbNail = UIImageJPEGRepresentation(filterImage, 0.1)
+//        
+//        (UIApplication.sharedApplication().delegate as AppDelegate).saveContext()
+//        self.navigationController?.popViewControllerAnimated(true)
     }
     
     // MARK: - Helpers
@@ -131,6 +134,44 @@ class FilterViewController: UIViewController, UICollectionViewDataSource, UIColl
         let finalImage = UIImage(CGImage: cgImage)
         
         return finalImage!
+    }
+    
+    // MARK: - UIAlertController helper functions
+    func createUIAlertController() {
+        let alert = UIAlertController(title: "Photo options",
+            message: "Please choose an option",
+            preferredStyle: UIAlertControllerStyle.Alert)
+        
+        alert.addTextFieldWithConfigurationHandler { (textField) -> Void in
+            textField.placeholder = "Add caption!"
+            textField.secureTextEntry = false
+        }
+        
+        var text: String
+        let textField = alert.textFields![0] as UITextField
+        if textField.text != nil {
+            text = textField.text
+        }
+        
+        let photoAction = UIAlertAction(title: "Post photo to facebook with caption",
+            style: UIAlertActionStyle.Destructive) { (UIAlertAction) -> Void in
+            
+        }
+        alert.addAction(photoAction)
+        
+        let saveFilterAction = UIAlertAction(title: "Save filter without posting to facebook",
+            style: UIAlertActionStyle.Default) { (UIAlertAction) -> Void in
+            
+        }
+        alert.addAction(saveFilterAction)
+        
+        let cancelAction = UIAlertAction(title: "Select another filter",
+            style: UIAlertActionStyle.Cancel) { (UIAlertAction) -> Void in
+            
+        }
+        alert.addAction(cancelAction)
+        
+        self.presentViewController(alert, animated: true, completion: nil)
     }
     
     // MARK: - Caching functions
