@@ -14,16 +14,27 @@ class FeedViewController: UIViewController,
     UICollectionViewDataSource,
     UICollectionViewDelegate,
     UIImagePickerControllerDelegate,
-    UINavigationControllerDelegate {
+    UINavigationControllerDelegate,
+    CLLocationManagerDelegate {
 
     @IBOutlet weak var collectionView: UICollectionView!
     
     var feedArray: [AnyObject] = []
     
+    var locationManager: CLLocationManager!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        locationManager = CLLocationManager()
+        locationManager.delegate = self
+        
+        locationManager.requestAlwaysAuthorization()
+        
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.distanceFilter = 100.0
+        locationManager.startUpdatingLocation()
 
     }
 
@@ -100,6 +111,8 @@ class FeedViewController: UIViewController,
         feedItem.image = imageData
         feedItem.caption = "test caption"
         feedItem.thumbNail = imageThumbNailData
+        feedItem.latitude = locationManager.location.coordinate.latitude
+        feedItem.longitude = locationManager.location.coordinate.longitude
         
         (UIApplication.sharedApplication().delegate as AppDelegate).saveContext()
         
@@ -137,5 +150,10 @@ class FeedViewController: UIViewController,
         filterVC.thisFeedItem = thisItem
         
         self.navigationController?.pushViewController(filterVC, animated: false)
+    }
+    
+    // MARK: - CLLocationManagerDelegate
+    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
+        println("Location updated: \(locations)")
     }
 }
