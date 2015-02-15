@@ -79,16 +79,7 @@ class FilterViewController: UIViewController, UICollectionViewDataSource, UIColl
     // MARK: - UICollectionViewDelegate
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        createUIAlertController()
-        
-        
-//        let filterImage = self.filteredImageForImage(self.thisFeedItem.image, filter: self.filters[indexPath.row])
-//        
-//        self.thisFeedItem.image = UIImageJPEGRepresentation(filterImage, 1.0)
-//        self.thisFeedItem.thumbNail = UIImageJPEGRepresentation(filterImage, 0.1)
-//        
-//        (UIApplication.sharedApplication().delegate as AppDelegate).saveContext()
-//        self.navigationController?.popViewControllerAnimated(true)
+        createUIAlertController(indexPath)
     }
     
     // MARK: - Helpers
@@ -136,8 +127,20 @@ class FilterViewController: UIViewController, UICollectionViewDataSource, UIColl
         return finalImage!
     }
     
+    func saveFilterToCoreData(indexPath: NSIndexPath, caption: String) {
+        let filterImage = self.filteredImageForImage(self.thisFeedItem.image,
+            filter: self.filters[indexPath.row])
+        
+        self.thisFeedItem.image = UIImageJPEGRepresentation(filterImage, 1.0)
+        self.thisFeedItem.thumbNail = UIImageJPEGRepresentation(filterImage, 0.1)
+        self.thisFeedItem.caption = caption
+        
+        (UIApplication.sharedApplication().delegate as AppDelegate).saveContext()
+        self.navigationController?.popViewControllerAnimated(true)
+    }
+    
     // MARK: - UIAlertController helper functions
-    func createUIAlertController() {
+    func createUIAlertController(indexPath: NSIndexPath) {
         let alert = UIAlertController(title: "Photo options",
             message: "Please choose an option",
             preferredStyle: UIAlertControllerStyle.Alert)
@@ -147,21 +150,21 @@ class FilterViewController: UIViewController, UICollectionViewDataSource, UIColl
             textField.secureTextEntry = false
         }
         
-        var text: String
         let textField = alert.textFields![0] as UITextField
-        if textField.text != nil {
-            text = textField.text
-        }
         
         let photoAction = UIAlertAction(title: "Post photo to facebook with caption",
             style: UIAlertActionStyle.Destructive) { (UIAlertAction) -> Void in
-            
+                self.shareToFacebook(indexPath)
+                var text = textField.text
+                self.saveFilterToCoreData(indexPath, caption: text)
+                
         }
         alert.addAction(photoAction)
         
         let saveFilterAction = UIAlertAction(title: "Save filter without posting to facebook",
             style: UIAlertActionStyle.Default) { (UIAlertAction) -> Void in
-            
+                var text = textField.text
+                self.saveFilterToCoreData(indexPath, caption: text)
         }
         alert.addAction(saveFilterAction)
         
@@ -172,6 +175,25 @@ class FilterViewController: UIViewController, UICollectionViewDataSource, UIColl
         alert.addAction(cancelAction)
         
         self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    func shareToFacebook(indexPath: NSIndexPath) {
+        let filterImage = self.filteredImageForImage(self.thisFeedItem.image,
+            filter: self.filters[indexPath.row])
+        
+        let photos: NSArray = [filterImage]
+        let params = FBPhotoParams()
+        params.photos = photos
+        
+        FBDialogs.presentMessageDialogWithPhotoParams(params, clientState: nil) { (call, result, error) -> Void in
+            if (result != nil) {
+                println(result)
+            }
+            else {
+                println(error)
+            }
+        }
+        
     }
     
     // MARK: - Caching functions
